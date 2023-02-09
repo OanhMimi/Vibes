@@ -26,7 +26,6 @@ router.post('/signup', validateRegisterInput, async(req,res,next)=>{
     const user = await User.findOne({
       $or: [{email: req.body.email}]
     });
-    console.log(user,"~~~~~~~~~~~~~!!!")
     if (user){
       //Throw a 400 error if the email address and/or email already exists
       const err = new Error("Validation error");
@@ -44,7 +43,6 @@ router.post('/signup', validateRegisterInput, async(req,res,next)=>{
       email: req.body.email
     });
 
-    console.log(newUser, "NEWW USEERRRRR")
     //we don't want to store pw as plain text, salt and hash the pw to be encrypted 
     bcrypt.genSalt(10,(err,salt) => {
       if (err) throw err;
