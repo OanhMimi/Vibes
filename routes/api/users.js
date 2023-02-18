@@ -3,7 +3,7 @@ const validateRegisterInput = require('../../validation/register');
 const validateLoginInput = require('../../validation/login');
 
 const {loginUser} = require('../../config/passport');
-const {restoreUser} = require('../../config/passport')
+const {restoreUser} = require('../../config/passport');
 const {isProduction} = require('../../config/keys')
 
 const express = require('express');
@@ -12,12 +12,13 @@ const bcrypt = require('bcryptjs');
 const mongoose = require('mongoose');
 const passport = require('passport');
 const User = mongoose.model('User');
+const jsonStringify = require('json-stringify-safe');
+
 
 /* GET users listing. */
 router.get('/', async(req, res, next) => {
-    return res.json({
-      message: "GET /api/users"
-    })
+  const users = await User.find()
+    res.json(users)
   });
 
 //User SIGN UP
@@ -70,6 +71,8 @@ router.post('/login', validateLoginInput, async(req,res,next)=>{
       err.errors = {email: "Invalid credentials"};
       return next(err);
     }
+    if (user) req.user = user;
+    console.log(req.user, "login user console")
     return res.json(await loginUser(user));
   })(req, res, next);
 }) 
@@ -80,12 +83,27 @@ router.get('/current', restoreUser, (req,res) => {
     const csrfToken = req.csrfToken();
     res.cookie("CSRF-TOKEN", csrfToken);
   }
+  // if(req.user) {
+  //   res.send(`Welcome ${req.user.firstName}`)
+  // }
+  // console.log(req.user, "req")
+//   const circular = req.user;
+// circular.circular = circular;
+
+// const jsonString = jsonStringify(circular);
+// console.log(jsonString);
+
   if (!req.user) return res.json(null);
   res.json({
     _id: req.user._id,
     firstName: req.user.firstName,
     email: req.user.email
   });
+
 });
+
+
+
+
 
 module.exports = router;

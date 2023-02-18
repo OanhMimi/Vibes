@@ -1,11 +1,13 @@
-
-const passport = require('passport')
+const mongoose = require("mongoose");
 const express = require('express');
+const path = require('path');
 const cookieParser = require('cookie-parser');
 const logger = require('morgan');
+
 const cors = require('cors');
+const debug = require('debug');
 const csurf = require('csurf');
-const debug = require('debug')
+const passport = require('passport');
 
 const indexRouter = require('./routes/index');
 const usersRouter = require('./routes/api/users');
@@ -15,11 +17,13 @@ require('./config/passport');
 
 
 const app = express();
+const port = process.env.PORT ||"3000";
 
 app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
+app.use(passport.initialize())
 
 const {isProduction} = require('./config/keys')
 if (!isProduction) {
@@ -36,10 +40,10 @@ app.use(
     })
 );
 
-app.use(passport.initialize())
+
 app.use('/', indexRouter);
 app.use('/api/users', usersRouter);
-app.use('/api/csrf', csrfRouter)
+app.use('/api/csrf', csrfRouter);
 
 
 // Express custom middleware for catching all requests that haven't gotten
@@ -64,5 +68,12 @@ app.use((err, req, res, next) => {
     })
 });
 
+app.get('/', (req, res) => {
+  res.send('Hello from Node.js server!');
+});
+
+app.listen(port, () => {
+  console.log(`Node.js server is listening on port ${port}`);
+});
 
 module.exports = app;
