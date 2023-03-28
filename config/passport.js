@@ -43,8 +43,8 @@ passport.use(new LocalStrategy({
     session: false,
     usernameField: 'email',
     passwordField: 'password',
-}, async function(email, password, done){
-      
+}, async function(email, password, done)
+{
     const user = await User.findOne({email});
     if (user) {
         bcrypt.compare(password, user.hashedPassword, (err,isMatch) => {
@@ -54,6 +54,23 @@ passport.use(new LocalStrategy({
     } else
     done(null,false);
 })); 
+
+passport.serializeUser(function(user, cb) {
+  console.log("serializing user uwu:" + JSON.stringify(user))
+  process.nextTick(function() {
+      console.log("WOOOOOOOOO LOGIN! SAMUEL SAMPSON SMITHERSON SNYDERS");
+      //return cb(null, { id: user.id, username: user.username });
+      return cb(null, user.id);
+  })
+});
+
+passport.deserializeUser(function (id, cb) {
+  console.log("deserializing user owo:" + JSON.stringify(id))
+  User.findOne({id}, function (err, user) {
+      if (err) { return cb(err)}
+      return cb(null, user);
+  })
+});
 
 exports.loginUser = async function (user) {
     const userInfo = {

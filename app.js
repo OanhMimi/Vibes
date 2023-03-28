@@ -8,6 +8,7 @@ const cors = require('cors');
 const debug = require('debug');
 const csurf = require('csurf');
 const passport = require('passport');
+const session = require('express-session');
 
 const indexRouter = require('./routes/index');
 const usersRouter = require('./routes/api/users');
@@ -23,7 +24,10 @@ app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
-app.use(passport.initialize())
+
+app.use(session({ secret: 'secret', resave: true, saveUninitialized: true }));
+app.use(passport.initialize());
+app.use(passport.session());
 
 const {isProduction} = require('./config/keys')
 if (!isProduction) {

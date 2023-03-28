@@ -61,6 +61,8 @@ router.post('/signup', validateRegisterInput, async(req,res,next)=>{
     })
   });
 
+  var quickTest;
+
   //User LOGIN
 router.post('/login', validateLoginInput, async(req,res,next)=>{
   passport.authenticate('local', async function(err,user){
@@ -77,8 +79,19 @@ router.post('/login', validateLoginInput, async(req,res,next)=>{
 }) 
 
   //route to return current user 
-router.get('/current', restoreUser, (req,res) => {
+router.get('/current', restoreUser, async(req,res) => {
+  if (req.isAuthenticated()) {
+     const user1 = req.user;
+    // console.log("userID " + req.user.usernameField);
+    // //console.log("email " + req.user.passwordField);
+      console.log(user1, "user1");
+      console.log("Testing details");
+      console.log(req.session, "passport");
+      console.log("email 2: " + req.user.email)
+  }
+  // console.log("how are you?")
   if (!isProduction){ 
+    console.log("i'm doing well")
     const csrfToken = req.csrfToken();
     res.cookie("CSRF-TOKEN", csrfToken);
   }
