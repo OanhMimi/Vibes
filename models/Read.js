@@ -9,12 +9,12 @@ const readSchema = Schema({
     bookAuthor:{
         type: String,
         required: true
-    }
+    },
     bookSummary:{
         type: String
     },
     bookRating:{
-        type: int
+        type: Number
     },
     bookReview:{
         type: String

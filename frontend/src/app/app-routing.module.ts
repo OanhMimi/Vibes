@@ -9,7 +9,7 @@ const routes: Routes = [
   { path: 'habits-component', component: HabitsComponent},
   { path: 'thoughts-component', component: ThoughtsComponent},
   { path: 'reads-component', component: ReadsComponent},
-  { path: '**', component: PageNotFoundComponent },  // Wildcard route for a 404 page
+  // { path: '**', component: PageNotFoundComponent }  // Wildcard route for a 404 page
 ];
 
 @NgModule({

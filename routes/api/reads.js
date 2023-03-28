@@ -9,3 +9,5 @@ router.get('/', async(req, res, next) => {
     const Reads = await Reads.find()
       res.json(Reads)
     });
+
+module.exports = router;
