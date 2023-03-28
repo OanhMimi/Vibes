@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { faBars,faCoffee } from '@fortawesome/free-solid-svg-icons';
+import { faBars } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'app-navbar',
@@ -8,8 +8,6 @@ import { faBars,faCoffee } from '@fortawesome/free-solid-svg-icons';
 })
 export class NavbarComponent {
   faBars = faBars;
-  faCoffee = faCoffee;
-
   navBarVisible = false;
 
   handleClick(){

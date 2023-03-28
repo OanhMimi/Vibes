@@ -9,6 +9,8 @@ import { ReadsComponent } from './reads/reads.component';
 import { ThoughtsComponent } from './thoughts/thoughts.component';
 import { HabitsComponent } from './habits/habits.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
+import { SignupComponent } from './signup/signup.component';
+import { LoginComponent } from './login/login.component';
 
 
 @NgModule({
@@ -18,7 +20,9 @@ import { PageNotFoundComponent } from './page-not-found/page-not-found.component
     ReadsComponent,
     ThoughtsComponent,
     HabitsComponent,
-    PageNotFoundComponent
+    PageNotFoundComponent,
+    SignupComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
