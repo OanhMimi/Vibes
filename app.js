@@ -12,7 +12,10 @@ const session = require('express-session');
 
 const indexRouter = require('./routes/index');
 const usersRouter = require('./routes/api/users');
-const csrfRouter = require('./routes/api/csrf')
+const csrfRouter = require('./routes/api/csrf');
+const readsRouter = require('./routes/api/reads');
+const thoughtsRouter = require('./routes/api/thoughts');
+const habitsRouter = require('./routes/api/habits');
 
 require('./config/passport'); 
 
@@ -48,6 +51,9 @@ app.use(
 app.use('/', indexRouter);
 app.use('/api/users', usersRouter);
 app.use('/api/csrf', csrfRouter);
+app.use('/api/reads',readsRouter);
+app.use('/api/thoughts', thoughtsRouter);
+app.use('/api/habits', habitsRouter);
 
 
 // Express custom middleware for catching all requests that haven't gotten

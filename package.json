@@ -5,11 +5,16 @@
   "scripts": {
     "start": "node ./bin/www",
     "dev": "dotenv nodemon ./bin/www --inspect"
-  }, 
+  },
   "engines": {
     "node": "16.x"
   },
   "dependencies": {
+    "@fortawesome/angular-fontawesome": "^0.12.1",
+    "@fortawesome/fontawesome-svg-core": "^6.4.0",
+    "@fortawesome/free-brands-svg-icons": "^6.4.0",
+    "@fortawesome/free-regular-svg-icons": "^6.4.0",
+    "@fortawesome/free-solid-svg-icons": "^6.4.0",
     "bcryptjs": "^2.4.3",
     "cookie-parser": "~1.4.4",
     "cors": "^2.8.5",

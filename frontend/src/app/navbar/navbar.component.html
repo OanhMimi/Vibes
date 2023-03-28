@@ -1,0 +1,9 @@
+<div (click) = "handleClick()">
+    <fa-icon [icon]="faBars"></fa-icon>
+    <div *ngIf="navBarVisible">
+        <div routerLink="/habits-component" routerLinkActive="active" ariaCurrentWhenActive="page">Habits</div>
+        <div routerLink="/thoughts-component" routerLinkActive="active" ariaCurrentWhenActive="page">Thoughts</div>
+        <div routerLink="/reads-component" routerLinkActive="active" ariaCurrentWhenActive="page">Reads</div>
+    </div>
+</div>
+
