@@ -1,6 +1,6 @@
-<div (click) = "handleClick()">
-    <fa-icon [icon]="faBars"></fa-icon>
-    <div *ngIf="navBarVisible">
+<div (click) = "handleClick()" class="flex flex-row gap-10 p-8 text-xl">
+    <fa-icon [icon]="faBars" ></fa-icon>
+    <div *ngIf="navBarVisible" class="flex flex-row gap-10">
         <div routerLink="/habits-component" routerLinkActive="active" ariaCurrentWhenActive="page">Habits</div>
         <div routerLink="/thoughts-component" routerLinkActive="active" ariaCurrentWhenActive="page">Thoughts</div>
         <div routerLink="/reads-component" routerLinkActive="active" ariaCurrentWhenActive="page">Reads</div>
