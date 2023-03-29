@@ -6,22 +6,29 @@ const readSchema = Schema({
         type: String,
         required: true
     },
-    bookAuthor:{
+    bookAuthorLastName:{
         type: String,
         required: true
     },
-    bookSummary:{
-        type: String
+    bookAuthorFirstName:{
+        type: String,
+        required: true
     },
     bookRating:{
-        type: Number
+        type: Number,
+        default: null
     },
     bookReview:{
-        type: String
+        type: String,
+        default: ""
     },
     bookCompletion:{
         type: Boolean,
         required: true
+    },
+    bookReader:{
+        type: Schema.Types.ObjectId,
+        ref:'User'
     }
 },{
     timestamps: true
