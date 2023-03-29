@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { faAngleDown } from '@fortawesome/free-solid-svg-icons';
+import { faAngleDown, faBook, faPencil, faSeedling } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'app-signup',
@@ -8,4 +8,7 @@ import { faAngleDown } from '@fortawesome/free-solid-svg-icons';
 })
 export class SignupComponent {
   faAngleDown = faAngleDown;
+  faBook = faBook;
+  faPencil = faPencil;
+  faSeedling = faSeedling;
 }
