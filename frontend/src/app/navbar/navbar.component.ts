@@ -11,6 +11,6 @@ export class NavbarComponent {
   navBarVisible = false;
 
   handleClick(){
-    this.navBarVisible = !this.navBarVisible
+    this.navBarVisible = !this.navBarVisible;
   }
 }

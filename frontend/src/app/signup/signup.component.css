@@ -1,0 +1,7 @@
+#down-arrow {
+    transition: all 0.8s ease-in-out
+}
+
+#down-arrow:hover {
+    transform: scale(1.6);
+}
