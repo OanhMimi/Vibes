@@ -36,24 +36,96 @@
 <div class="h-screen">
     <div class="flex items-end text-6xl h-64 tracking-widest px-40">Start your journey</div>
     <!-- need form action -->
-    <form class="grid place-items-center gap-6 mt-20">
+    <form 
+      *ngIf="!isSuccessful"
+      name="form"
+      (ngSubmit)="f.form.valid && onSubmit()"
+      #f="ngForm"
+      novalidate
+      class="grid place-items-center gap-6 mt-20">
         <div>
-            <label for="fname">First Name:</label>
-            <input type="text" id="fname" name="fname" class="border w-64 ml-5"><br>
+            <label for="firstName">First Name:</label>
+            <input 
+                type="text" 
+                id="firstName" 
+                name="firstName"           
+                [(ngModel)]="form.firstName"
+                required
+                minlength="1"
+                maxlength="30"
+                #firstName="ngModel"
+                class="border w-64 ml-5">
+                <div class="alert-danger" *ngIf="firstName.errors && f.submitted">
+                    <div *ngIf="firstName.errors['required']">First Name is required</div>
+                    <div *ngIf="firstName.errors['minlength']">
+                      First Name must be at least 1 characters
+                    </div>
+                    <div *ngIf="firstName.errors['maxlength']">
+                      FirstName must be at most 30 characters
+                    </div>
+                </div><br>
         </div>
         <div>
-            <label for="lname">Last name:</label>
-            <input type="text" id="lname" name="lname" class="border w-64 ml-5"><br>
+            <label for="email">Email:</label>
+            <input 
+                type="email" 
+                id="email" 
+                name="email" 
+                [(ngModel)]="form.email"
+                required
+                #email="ngModel"
+                class="border w-64 ml-5">
+             <div class="alert-danger" *ngIf="email.errors && f.submitted">
+                    <div *ngIf="email.errors['required']">Email is required</div>
+                    <div *ngIf="email.errors['email']">
+                      Email must be a valid email address
+            </div>
+            </div><br>
         </div>
         <div>
             <label for="password">Password:</label>
-            <input type="text" id="password" name="password" class="border w-64 ml-5"><br>
+            <input 
+                type="password" 
+                id="password" 
+                name="password" 
+                [(ngModel)]="form.password"
+                required
+                minlength="6"
+                maxlength="30"
+                #password="ngModel"
+                class="border w-64 ml-5">
+                <div class="alert-danger" *ngIf="password.errors && f.submitted">
+                    <div *ngIf="password.errors['required']">Password is required</div>
+                    <div *ngIf="password.errors['minlength']">
+                      Password must be at between 6 and 30 characters
+                    </div>
+                </div>
+               <br>
         </div>
         <div>
             <label for="confirm-password">Confirm Password:</label>
-            <input type="text" id="confirm-password" name="confirm-password" class="border w-64 ml-5"><br>
+            <input 
+                type="password" 
+                id="confirm-password" 
+                name="confirm-password"
+                [(ngModel)]="form.confirmPassword"
+                required
+                minlength="6"
+                maxlength="30"
+                #confirmPassword="ngModel" 
+                class="border w-64 ml-5">
+                <div class="alert-danger" *ngIf="confirmPassword.errors && f.submitted">
+                    <div *ngIf="confirmPassword.errors['required']">Confirm Password is required</div>
+                    <div *ngIf="password.value !== confirmPassword.value">Passwords must match</div>
+                </div><br>
         </div>
         <input type="submit" value="Sign Up" class="w-40 mt-5 rounded-full px-4 py-3 uppercase tracking-widest bg-white border border-black hover:bg-gray-200 cursor-pointer"><br>
+        <div class="alert alert-warning" *ngIf="f.submitted && isSignUpFailed">
+            Signup failed!<br />{{ errorMessage }}
+        </div>
     </form>
+    <div class="alert alert-success" *ngIf="isSuccessful">
+        Your registration is successful!
+    </div>
 </div>
 </section>
