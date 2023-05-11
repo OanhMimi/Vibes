@@ -25,7 +25,7 @@ router.get('/', async(req, res, next) => {
 router.post('/signup', validateRegisterInput, async(req,res,next)=>{
      // Check to make sure nobody has already registered with a duplicate email
     const user = await User.findOne(
-      [{email: req.body.email}]
+      {email: req.body.email}
     );
     if (user){
       //Throw a 400 error if the email address and/or email already exists
