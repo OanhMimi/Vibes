@@ -27,6 +27,7 @@ export class SignupComponent implements OnInit {
 
   onSubmit(): void {
     const { firstName, email, password } = this.form;
+    console.log("first")
 
     this.authService.register(firstName, email, password).subscribe({
       next: data => {
@@ -39,6 +40,7 @@ export class SignupComponent implements OnInit {
         this.isSignUpFailed = true;
       }
     });
+     console.log("after service")
   }
 
   faAngleDown = faAngleDown;
