@@ -41,6 +41,7 @@ html {
   /* 2 */
 }
 
+
 /*
 Sections
 ========
@@ -52,6 +53,7 @@ Remove the margin in all browsers.
 
 body {
   margin: 0;
+  overscroll-behavior: none;
 }
 
 /**

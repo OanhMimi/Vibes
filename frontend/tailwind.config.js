@@ -4,6 +4,8 @@ module.exports = {
   theme: {
     fontFamily: {
       'sans': ['"Montserrat"', 'system-ui'],
+    },
+    extend: {
     }
   },
   plugins: [],

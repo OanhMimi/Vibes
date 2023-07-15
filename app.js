@@ -9,6 +9,7 @@ const debug = require('debug');
 const csurf = require('csurf');
 const passport = require('passport');
 const session = require('express-session');
+var bodyParser = require("body-parser");
 
 const indexRouter = require('./routes/index');
 const usersRouter = require('./routes/api/users');
@@ -37,16 +38,20 @@ if (!isProduction) {
     app.use(cors());
 }
 
-app.use(
-    csurf({
-        cookie: {
-            secure: isProduction,
-            sameSite: isProduction && "Lax",
-            httpOnly: true
-        }
-    })
-);
+//API endpoints with middleware that will route to the appropriate js logic
+app.get('/', (req, res) => {
+    res.send('Hello from Node.js server!');
+});
 
+// app.use(
+//     csurf({
+//         cookie: {
+//             secure: isProduction,
+//             sameSite: isProduction && "Lax",
+//             httpOnly: true
+//         }
+//     })
+// );
 
 app.use('/', indexRouter);
 app.use('/api/users', usersRouter);
@@ -78,8 +83,17 @@ app.use((err, req, res, next) => {
     })
 });
 
-app.get('/', (req, res) => {
-  res.send('Hello from Node.js server!');
+var jsonParser = bodyParser.json()
+app.all('*', jsonParser, function(req, res, next){
+
+    console.log(
+        "************ NEW REQUEST ************", '\n',
+        'req.path:', req.path, '\n',
+        'req.headers:', req.headers, '\n',
+        'req.body:', req.body
+    ); // For debugging
+
+    next();
 });
 
 app.listen(port, () => {

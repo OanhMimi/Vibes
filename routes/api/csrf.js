@@ -12,6 +12,7 @@ if (!isProduction){
         res.status(200).json({
             'CSRF-Token': csrfToken
         });
+        console.log(csrfToken)
     });
 }
 

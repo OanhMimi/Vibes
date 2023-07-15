@@ -1,8 +1,30 @@
+ <div id="parallax">
+    <div id="inner-parallax">
+        <img src="../../assets/images/Sandlayer.svg" #sandLayer id="sand-layer">
+        <img src="../../assets/images/Pinklayer.svg" id="pink-layer">
+        <img src="../../assets/images/Cloud1.svg" id="cloud-1">
+        <img src="../../assets/images/Cloud2.svg" id="cloud-2">
+        <img src="../../assets/images/Cloud3.svg" id="cloud-3">
+        <img src="../../assets/images/Leftmount1.svg" id="leftmt-1">
+        <img src="../../assets/images/Leftmount2.svg" #leftMt2 id="leftmt-2">
+        <img src="../../assets/images/Rightmount1.svg" id="rightmt-1">
+        <img src="../../assets/images/Rightmount2.svg" id="rightmt-2">
+        <img src="../../assets/images/Rightmount3.svg" id="rightmt-3">
+        <img src="../../assets/images/Rightmount4.svg" #rightMt4 id="rightmt-4">
+        <img src="../../assets/images/Sunlayer.svg" #sunLayer id="sun-layer">
+        <img src="../../assets/images/Bird1.svg" #bird1 id="bird1">
+        <img src="../../assets/images/Bird2.svg" #bird2 id="bird2">
+    
+ </div>
+ 
+
+
 <section>
 <div class="grid place-items-center h-screen">
     <h1 class="flex items-end text-7xl h-80  tracking-widest">Welcome to Vibes</h1>
     <h2 class="flex items-end h-20">A place to unwind and refocus your day</h2>
-    <div class="flex justify-center rounded-full border-2 border-gray-600 px-4 py-3 w-40 mt-5 tracking-widest hover:bg-gray-200 cursor-pointer">Login Here</div>
+    <div class="flex justify-center rounded-full border-2 border-gray-600 px-4 py-3 w-40 mt-5 tracking-widest cursor-pointer" id="login-btn">Login Here</div>
+    <div class="border-2 invisible" (click)="handleButtonClick()">Click me</div>
     <div class="grid place-items-center mt-28">
         <div>First time here?</div>
         <div>Scroll down</div>
@@ -42,7 +64,7 @@
       (ngSubmit)="f.form.valid && onSubmit()"
       #f="ngForm"
       novalidate
-      class="grid place-items-center gap-6 mt-20">
+      class="grid justify-center justify-items-end gap-6 mt-20">
         <div>
             <label for="firstName">First Name:</label>
             <input 
@@ -119,7 +141,7 @@
                     <div *ngIf="password.value !== confirmPassword.value">Passwords must match</div>
                 </div><br>
         </div>
-        <input type="submit" value="Sign Up" class="w-40 mt-5 rounded-full px-4 py-3 uppercase tracking-widest bg-white border border-black hover:bg-gray-200 cursor-pointer"><br>
+        <input type="submit" value="Sign Up" class="w-40 mt-5 rounded-full px-4 py-3 uppercase tracking-widest border border-black cursor-pointer justify-self-center" id="sign-up-btn"><br>
         <div class="alert alert-warning" *ngIf="f.submitted && isSignUpFailed">
             Signup failed!<br />{{ errorMessage }}
         </div>
