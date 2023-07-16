@@ -26,6 +26,7 @@
               "src/asses/svg/*"
             ],
             "styles": [
+              "src/custom-theme.scss",
               "src/styles.css"
             ],
             "scripts": []

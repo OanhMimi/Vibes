@@ -7,9 +7,11 @@
     transform: scale(1.6);
 }
 
-#sign-up-btn {
-    background-color: rgb(239,219,216, 0.8);
+#sign-up-btn, #login-btn {
+    background-color: rgb(230,156,138);
     border-radius: 9999px;
+    border: 1px rgba(0, 0, 0, 0.5) solid;
+
 }
 
 #sign-up-btn:hover, #login-btn:hover {
@@ -17,8 +19,11 @@
 }
 
 input{
-   background-color: rgb(239,219,216, 0.8);
-   border: 1px black solid;
+   background-color:#efdbd8a5; 
+   border: 1px rgba(0, 0, 0, 0.5) solid;
    border-radius: 5px;
 }
+
+
+
 

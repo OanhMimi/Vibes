@@ -16,6 +16,8 @@ import { LoginComponent } from './login/login.component';
 
 import { authInterceptorProviders } from './_helpers/auth.interceptor';
 import { BackdropComponent } from './backdrop/backdrop.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+
 
 
 @NgModule({
@@ -40,6 +42,7 @@ import { BackdropComponent } from './backdrop/backdrop.component';
       cookieName: 'XSRF-TOKEN', // Name of the cookie containing the CSRF token
       headerName: 'X-XSRF-TOKEN'
     }),
+    BrowserAnimationsModule,
   ],
   providers: [authInterceptorProviders],
   bootstrap: [AppComponent]
