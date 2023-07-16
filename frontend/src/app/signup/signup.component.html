@@ -1,30 +1,13 @@
- <div id="parallax">
-    <div id="inner-parallax">
-        <img src="../../assets/images/Sandlayer.svg" #sandLayer id="sand-layer">
-        <img src="../../assets/images/Pinklayer.svg" id="pink-layer">
-        <img src="../../assets/images/Cloud1.svg" id="cloud-1">
-        <img src="../../assets/images/Cloud2.svg" id="cloud-2">
-        <img src="../../assets/images/Cloud3.svg" id="cloud-3">
-        <img src="../../assets/images/Leftmount1.svg" id="leftmt-1">
-        <img src="../../assets/images/Leftmount2.svg" #leftMt2 id="leftmt-2">
-        <img src="../../assets/images/Rightmount1.svg" id="rightmt-1">
-        <img src="../../assets/images/Rightmount2.svg" id="rightmt-2">
-        <img src="../../assets/images/Rightmount3.svg" id="rightmt-3">
-        <img src="../../assets/images/Rightmount4.svg" #rightMt4 id="rightmt-4">
-        <img src="../../assets/images/Sunlayer.svg" #sunLayer id="sun-layer">
-        <img src="../../assets/images/Bird1.svg" #bird1 id="bird1">
-        <img src="../../assets/images/Bird2.svg" #bird2 id="bird2">
-    
- </div>
- 
+
+ <app-backdrop></app-backdrop>
 
 
 <section>
 <div class="grid place-items-center h-screen">
     <h1 class="flex items-end text-7xl h-80  tracking-widest">Welcome to Vibes</h1>
     <h2 class="flex items-end h-20">A place to unwind and refocus your day</h2>
-    <div class="flex justify-center rounded-full border-2 border-gray-600 px-4 py-3 w-40 mt-5 tracking-widest cursor-pointer" id="login-btn">Login Here</div>
-    <div class="border-2 invisible" (click)="handleButtonClick()">Click me</div>
+    <div routerLink="/login-component" routerLinkActive="active" ariaCurrentWhenActive="page" class="flex justify-center rounded-full border-2 border-gray-600 px-4 py-3 w-40 mt-5 tracking-widest cursor-pointer" id="login-btn">Login Here</div>
+    <div class="border-2" (click)="handleButtonClick()">Click me</div>
     <div class="grid place-items-center mt-28">
         <div>First time here?</div>
         <div>Scroll down</div>

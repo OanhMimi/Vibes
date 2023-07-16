@@ -16,6 +16,10 @@ export class UserService {
     return this.http.get<User[]>(API_URL);
   }
 
+  createUser(user: User): Observable<User> {
+    return this.http.post<User>(API_URL, user)
+  }
+
   getPublicContent(): Observable<any> {
     return this.http.get(API_URL + 'all', { responseType: 'text' });
   }

@@ -2,10 +2,16 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
 
-const AUTH_API = 'http://localhost:3000/api/users/';
 
+
+const AUTH_API = 'http://localhost:3000/api/users/';
+const token = localStorage.getItem('token');
 const httpOptions = {
-  headers: new HttpHeaders({ 'Content-Type': 'application/json' })
+  headers: {
+    'Content-Type':'application/json',
+    'Authorization': 'Bearer' + token,
+    'Accept': 'application/json'
+  }
 };
 
 @Injectable({

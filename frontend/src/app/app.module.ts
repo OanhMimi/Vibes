@@ -15,6 +15,7 @@ import { SignupComponent } from './signup/signup.component';
 import { LoginComponent } from './login/login.component';
 
 import { authInterceptorProviders } from './_helpers/auth.interceptor';
+import { BackdropComponent } from './backdrop/backdrop.component';
 
 
 @NgModule({
@@ -26,7 +27,8 @@ import { authInterceptorProviders } from './_helpers/auth.interceptor';
     HabitsComponent,
     PageNotFoundComponent,
     SignupComponent,
-    LoginComponent
+    LoginComponent,
+    BackdropComponent
   ],
   imports: [
     BrowserModule,
