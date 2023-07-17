@@ -60,7 +60,7 @@
                 minlength="1"
                 maxlength="30"
                 #firstName="ngModel"
-                class="border w-64 ml-5">
+                class="signup-input  border w-64 ml-5">
                 <div class="alert-danger" *ngIf="firstName.errors && f.submitted">
                     <div *ngIf="firstName.errors['required']">First Name is required</div>
                     <div *ngIf="firstName.errors['minlength']">
@@ -80,7 +80,7 @@
                 [(ngModel)]="form.email"
                 required
                 #email="ngModel"
-                class="border w-64 ml-5">
+                class="signup-input border w-64 ml-5">
              <div class="alert-danger" *ngIf="email.errors && f.submitted">
                     <div *ngIf="email.errors['required']">Email is required</div>
                     <div *ngIf="email.errors['email']">
@@ -99,7 +99,7 @@
                 minlength="6"
                 maxlength="30"
                 #password="ngModel"
-                class="border w-64 ml-5">
+                class="signup-input border w-64 ml-5">
                 <div class="alert-danger" *ngIf="password.errors && f.submitted">
                     <div *ngIf="password.errors['required']">Password is required</div>
                     <div *ngIf="password.errors['minlength']">
@@ -119,7 +119,7 @@
                 minlength="6"
                 maxlength="30"
                 #confirmPassword="ngModel" 
-                class="border w-64 ml-5">
+                class="signup-input border w-64 ml-5">
                 <div class="alert-danger" *ngIf="confirmPassword.errors && f.submitted">
                     <div *ngIf="confirmPassword.errors['required']">Confirm Password is required</div>
                     <div *ngIf="password.value !== confirmPassword.value">Passwords must match</div>

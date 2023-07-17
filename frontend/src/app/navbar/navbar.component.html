@@ -1,5 +1,5 @@
 <div (click) = "handleClick()"  class="flex flex-row gap-10 p-8 text-xl bg-white w-screen">
-    <fa-icon [icon]="faBars" class="p-4 hover:bg-gray-100"></fa-icon>
+    <fa-icon [icon]="faBars" class="p-4 menu-icon"></fa-icon>
     <div id="nav-bar-comp" *ngIf="navBarVisible" class="flex flex-row gap-10 text-base"> 
         <div routerLink="/habits-component" routerLinkActive="active" ariaCurrentWhenActive="page"  class="nav-link p-4">Habits</div>
         <div routerLink="/thoughts-component" routerLinkActive="active" ariaCurrentWhenActive="page" class="nav-link p-4">Thoughts</div>

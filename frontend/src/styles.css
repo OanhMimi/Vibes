@@ -13,6 +13,12 @@ Document
 Use a better box model (opinionated).
 */
 
+:root {
+    --primary-color:#e69c8a;
+    --secondary-color: #efdbd8 ;
+    --hover-color: #f2debe;  
+}
+
 *,
 ::before,
 ::after {

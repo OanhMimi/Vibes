@@ -1,3 +1,61 @@
 
 <app-backdrop></app-backdrop>
-<p>login works!</p>
+
+<section>
+<div class="h-screen">
+    <div class="flex items-end text-6xl h-64 tracking-widest px-40">Continue your journey</div>
+    <!-- need form action -->
+    <form 
+      *ngIf="!isSuccessful"
+      name="form"
+      (ngSubmit)="f.form.valid && onSubmit()"
+      #f="ngForm"
+      novalidate
+      class="grid justify-center justify-items-end gap-6 mt-20">
+        <div>
+            <label for="email">Email:</label>
+            <input 
+                type="email" 
+                id="email" 
+                name="email" 
+                [(ngModel)]="form.email"
+                required
+                #email="ngModel"
+                class="login-input border w-64 ml-5">
+             <div class="alert-danger" *ngIf="email.errors && f.submitted">
+                    <div *ngIf="email.errors['required']">Email is required</div>
+                    <div *ngIf="email.errors['email']">
+                      Email must be a valid email address
+            </div>
+            </div><br>
+        </div>
+        <div>
+            <label for="password">Password:</label>
+            <input 
+                type="password" 
+                id="password" 
+                name="password" 
+                [(ngModel)]="form.password"
+                required
+                minlength="6"
+                maxlength="30"
+                #password="ngModel"
+                class="login-input border w-64 ml-5">
+                <div class="alert-danger" *ngIf="password.errors && f.submitted">
+                    <div *ngIf="password.errors['required']">Password is required</div>
+                    <div *ngIf="password.errors['minlength']">
+                      Password must be at between 6 and 30 characters
+                    </div>
+                </div>
+               <br>
+        </div>
+        <input type="submit" value="Login" class="w-40 mt-5 rounded-full px-4 py-3 uppercase tracking-widest border border-black cursor-pointer justify-self-center" id="login-btn"><br>
+        <div class="alert alert-warning" *ngIf="f.submitted && isLoginFailed">
+            Login failed!<br />{{ errorMessage }}
+        </div>
+    </form>
+    <div class="alert alert-success" *ngIf="isSuccessful">
+        Login successful!
+    </div>
+</div>
+</section>

@@ -29,9 +29,9 @@ export class BackdropComponent implements AfterViewInit {
   onWindowScroll() {
     const scrollPos = window.scrollY || window.pageYOffset || document.documentElement.scrollTop;
 
-    this.bird1.nativeElement.style.right = (0 + (scrollPos * 1)) + "px";
 
     if (scrollPos < 600) {
+      this.bird1.nativeElement.style.right = (0 + (scrollPos * 1)) + "px";
       this.sunLayer.nativeElement.style.top = -(scrollPos * 0.25) + "px";
       this.sunLayer.nativeElement.style.right = (scrollPos)+ "px";
       this.rightMt4.nativeElement.style.bottom = (0 - (scrollPos * 0.05)) + "px";

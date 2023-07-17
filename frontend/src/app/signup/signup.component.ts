@@ -1,9 +1,6 @@
-import { AfterViewInit, Component, HostListener, OnInit, ViewChild } from '@angular/core';
+import { Component,OnInit } from '@angular/core';
 import { faAngleDown, faBook, faPencil, faSeedling } from '@fortawesome/free-solid-svg-icons';
-import { gsap } from 'gsap';
-import { ScrollTrigger } from 'gsap/all';
 import { AuthService } from '../_services/auth.service';
-import { HttpClient } from '@angular/common/http';
 import { UserService } from '../_services/user.service';
 
 @Component({
@@ -22,11 +19,6 @@ export class SignupComponent implements OnInit {
     private userService: UserService,
     private authService: AuthService
     ) {}
-
-
-
-
-
 
   onGetUsers(): void {
     this.userService.getUsers().subscribe(
@@ -61,7 +53,6 @@ export class SignupComponent implements OnInit {
 
   onSubmit(): void {
     const { firstName, email, password } = this.form;
-    console.log("first")
 
     this.authService.register(firstName, email, password).subscribe({
       next: data => {
@@ -74,7 +65,6 @@ export class SignupComponent implements OnInit {
         this.isSignUpFailed = true;
       }
     });
-     console.log("after service")
   }
 
   faAngleDown = faAngleDown;

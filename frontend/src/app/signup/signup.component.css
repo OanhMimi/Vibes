@@ -8,14 +8,14 @@
 }
 
 #sign-up-btn, #login-btn {
-    background-color: rgb(230,156,138);
+    background-color: var(--primary-color);
     border-radius: 9999px;
     border: 1px rgba(0, 0, 0, 0.5) solid;
 
 }
 
 #sign-up-btn:hover, #login-btn:hover {
-    background-color: rgba(235, 205, 201, 0.8);
+    background-color: var(--hover-color);
 }
 
 input{
@@ -24,6 +24,10 @@ input{
    border-radius: 5px;
 }
 
+.signup-input {
+    padding: 5px 10px 5px 10px;
+    margin-left: 10px;
+}
 
 
 
