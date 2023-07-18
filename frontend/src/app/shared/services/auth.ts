@@ -1,41 +1,25 @@
 import { Injectable, NgZone } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
-import { Observable } from 'rxjs';
-import { User } from '../shared/services/user';
-import * as auth from 'firebase/auth';
-import { AngularFireAuth } from '@angular/fire/compat/auth';
+import { User } from '../services/user';
 import {
   AngularFirestore,
   AngularFirestoreDocument,
 } from '@angular/fire/compat/firestore';
+import * as auth from 'firebase/auth';
+import { AngularFireAuth } from '@angular/fire/compat/auth';
 import { Router } from '@angular/router';
-
-
-
-const AUTH_API = 'http://localhost:3000/api/users/';
-const token = localStorage.getItem('token');
-const httpOptions = {
-  headers: {
-    'Content-Type':'application/json',
-    'Authorization': 'Bearer' + token,
-    'Accept': 'application/json'
-  }
-};
-
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
+
 export class AuthService {
-  userData: any;
+  userData: any; // Save logged in user data
   constructor(
-    private http: HttpClient,
     public afs: AngularFirestore, // Inject Firestore service
     public afAuth: AngularFireAuth, // Inject Firebase auth service
     public router: Router,
-    public ngZone: NgZone 
-    ) { 
-
-  /* Saving user data in localstorage when 
+    public ngZone: NgZone // NgZone service to remove outside scope warning
+  ) {
+    /* Saving user data in localstorage when 
     logged in and setting up null when logged out */
     this.afAuth.authState.subscribe((user) => {
       if (user) {
@@ -48,25 +32,6 @@ export class AuthService {
       }
     });
   }
-
-     //old code
-
-  login(email: string, password: string): Observable<any> {
-    return this.http.post(AUTH_API + 'login', {
-      email,
-      password
-    }, httpOptions);
-  }
-
-  register(firstName: string, email: string, password: string): Observable<any> {
-    return this.http.post(AUTH_API + 'signup', {
-      firstName,
-      email,
-      password
-    }, httpOptions);
-  }
-  
-
 
   SignIn(email: string, password: string) {
     return this.afAuth
@@ -84,8 +49,7 @@ export class AuthService {
       });
   }
 
-   // Sign up with email/password
-  SignUp(email: string, password: string) {
+   SignUp(email: string, password: string) {
     return this.afAuth
       .createUserWithEmailAndPassword(email, password)
       .then((result) => {
@@ -99,7 +63,7 @@ export class AuthService {
       });
   }
 
-  SendVerificationMail() {
+    SendVerificationMail() {
     return this.afAuth.currentUser
       .then((u: any) => u.sendEmailVerification())
       .then(() => {
@@ -107,7 +71,7 @@ export class AuthService {
       });
   }
 
-  ForgotPassword(passwordResetEmail: string) {
+    ForgotPassword(passwordResetEmail: string) {
     return this.afAuth
       .sendPasswordResetEmail(passwordResetEmail)
       .then(() => {
@@ -118,27 +82,9 @@ export class AuthService {
       });
   }
 
-  get isLoggedIn(): boolean {
+    get isLoggedIn(): boolean {
     const user = JSON.parse(localStorage.getItem('user')!);
     return user !== null && user.emailVerified !== false ? true : false;
-  }
-  // Sign in with Google
-  GoogleAuth() {
-    return this.AuthLogin(new auth.GoogleAuthProvider()).then((res: any) => {
-      this.router.navigate(['dashboard']);
-    });
-  }
-  // Auth logic to run auth providers
-  AuthLogin(provider: any) {
-    return this.afAuth
-      .signInWithPopup(provider)
-      .then((result) => {
-        this.router.navigate(['dashboard']);
-        this.SetUserData(result.user);
-      })
-      .catch((error) => {
-        window.alert(error);
-      });
   }
 
   SetUserData(user: any) {
@@ -156,13 +102,11 @@ export class AuthService {
       merge: true,
     });
   }
-  // Sign out
-  SignOut() {
+  
+SignOut() {
     return this.afAuth.signOut().then(() => {
       localStorage.removeItem('user');
       this.router.navigate(['sign-in']);
     });
   }
 }
- 
-
