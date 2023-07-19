@@ -1,0 +1,38 @@
+<app-backdrop></app-backdrop>
+
+<section>
+<div class="grid place-items-center h-screen">
+    <h1 class="flex items-end text-7xl h-80  tracking-widest">Welcome to Vibes</h1>
+    <h2 class="flex items-end h-20">A place to unwind and refocus your day</h2>
+    <div routerLink="/login-component" routerLinkActive="active" ariaCurrentWhenActive="page" class="flex justify-center rounded-full border-2 border-gray-600 px-4 py-3 w-40 mt-5 tracking-widest cursor-pointer" id="login-btn">Login Here</div>
+    
+    <div class="grid place-items-center mt-28">
+        <div>First time here?</div>
+        <div>Scroll down</div>
+        <a href="#sign-up-2"><fa-icon [icon]="faAngleDown" id="down-arrow" class="flex justify-center items-center text-3xl animate-pulse p-4 cursor-pointer w-40"></fa-icon></a>
+    </div>
+</div>
+</section>
+
+<section id="sign-up-2">
+<div class="h-screen">
+    <div class="flex items-end text-6xl h-80 tracking-widest px-40">What vibes with you?</div>
+    <div class="flex text-base flex-wrap items-end justify-end h-40 mr-72 leading-8">This is a space to chronicle and reflect, <br> to aim high and achieve your goals, <br> to record your great literary adventures.</div>
+    <div class="flex flex-row justify-center items-end gap-40 h-48 w-screen">
+        <div class="flex flex-col justify-center items-center">
+            <fa-icon [icon]="faSeedling" class="text-6xl h-20"></fa-icon>
+            <div>Grow your habits</div>
+        </div>
+        <div class="flex flex-col justify-center items-center">
+            <fa-icon [icon]="faBook" class="text-6xl h-20"></fa-icon>
+            <div>Journal your thoughts</div>
+        </div>
+        <div class="flex flex-col justify-center items-center">
+            <fa-icon [icon]="faPencil" class="text-6xl h-20"></fa-icon>
+            <div>Log your reads</div>
+        </div>
+    </div>
+</div>
+</section>
+
+<app-signup></app-signup>

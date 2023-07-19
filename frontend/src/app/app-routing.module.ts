@@ -11,18 +11,20 @@ import { VerifyEmailComponent } from './components/verify-email/verify-email.com
 import { DashboardComponent } from './components/dashboard/dashboard.component';
 // route guard
 import { AuthGuard } from './shared/guard/auth.guard';
+import { WelcomePageComponent } from './welcome-page/welcome-page.component';
 
 
 const routes: Routes = [
   { path: '', component: SignupComponent},
-  { path: 'login-component', component: LoginComponent},
+  { path: 'login', component: LoginComponent},
   { path: 'dashboard', component: DashboardComponent, canActivate: [AuthGuard] },
-  { path: 'habits-component', 
+  { path: 'habits', 
   component: HabitsComponent, canActivate: [AuthGuard]},
-  { path: 'thoughts-component', component: ThoughtsComponent, canActivate: [AuthGuard]},
-  { path: 'reads-component', component: ReadsComponent, canActivate: [AuthGuard]},
+  { path: 'thoughts', component: ThoughtsComponent, canActivate: [AuthGuard]},
+  { path: 'reads', component: ReadsComponent, canActivate: [AuthGuard]},
   { path: 'forgot-password', component: ForgotPasswordComponent },
   { path: 'verify-email-address', component: VerifyEmailComponent },
+  { path: 'welcome', component: WelcomePageComponent }
   // { path: '**', component: PageNotFoundComponent }  // Wildcard route for a 404 page
 ];
 

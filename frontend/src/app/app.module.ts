@@ -26,6 +26,7 @@ import { environment } from '../environments/environment';
 import { ForgotPasswordComponent } from './components/forgot-password/forgot-password.component';
 import { VerifyEmailComponent } from './components/verify-email/verify-email.component';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
+import { WelcomePageComponent } from './welcome-page/welcome-page.component';
 
 
 
@@ -42,7 +43,8 @@ import { DashboardComponent } from './components/dashboard/dashboard.component';
     BackdropComponent,
     ForgotPasswordComponent,
     VerifyEmailComponent,
-    DashboardComponent
+    DashboardComponent,
+    WelcomePageComponent
   ],
   imports: [
     BrowserModule,

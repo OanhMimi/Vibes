@@ -4,7 +4,7 @@ import {
   AngularFirestore,
   AngularFirestoreDocument,
 } from '@angular/fire/compat/firestore';
-import * as auth from 'firebase/auth';
+import { GoogleAuthProvider } from 'firebase/auth';
 import { AngularFireAuth } from '@angular/fire/compat/auth';
 import { Router } from '@angular/router';
 @Injectable({
@@ -31,6 +31,22 @@ export class AuthService {
         JSON.parse(localStorage.getItem('user')!);
       }
     });
+  }
+
+  GoogleAuth() {
+    return this.AuthLogin(new GoogleAuthProvider());
+  }
+
+    AuthLogin(provider) {
+    return this.afAuth
+      .signInWithPopup(provider)
+      .then((result) => {
+        console.log('Login Successful');
+        this.router.navigate(['/dashboard'])
+      })
+      .catch((error) => {
+        console.log(error);
+      });
   }
 
   SignIn(email: string, password: string) {
@@ -102,7 +118,7 @@ export class AuthService {
       merge: true,
     });
   }
-  
+
 SignOut() {
     return this.afAuth.signOut().then(() => {
       localStorage.removeItem('user');
