@@ -4,7 +4,7 @@ import {
   AngularFirestore,
   AngularFirestoreDocument,
 } from '@angular/fire/compat/firestore';
-import { GoogleAuthProvider } from 'firebase/auth';
+import { GoogleAuthProvider, FacebookAuthProvider } from 'firebase/auth';
 import { AngularFireAuth } from '@angular/fire/compat/auth';
 import { Router } from '@angular/router';
 @Injectable({
@@ -36,6 +36,10 @@ export class AuthService {
   GoogleAuth() {
     return this.AuthLogin(new GoogleAuthProvider());
   }
+
+//   FacebookAuth(){
+//     return this.AuthLogin(new FacebookAuthProvider());
+//   }
 
     AuthLogin(provider) {
     return this.afAuth
