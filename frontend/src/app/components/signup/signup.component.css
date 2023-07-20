@@ -1,3 +1,19 @@
+.signup-btn {
+    background-color: var(--primary-color);
+    border-radius: 9999px;
+    border: 1px rgba(0, 0, 0, 0.5) solid;
+
+}
+
+.signup-btn:hover {
+    background-color: var(--hover-color);
+}
+
+.signup-btn:disabled {
+    background-color: var(--primary-color);
+    cursor: not-allowed;
+}
+
 
 input{
    background-color:#efdbd8a5; 
@@ -6,9 +22,18 @@ input{
 }
 
 .signup-input {
-    padding: 5px 10px 5px 10px;
-    margin-left: 10px;
+    padding: 1rem 2rem 1rem 2rem;
+    margin-left: 1rem;
 }
 
+.signup-input input {
+    width: 18rem;
+}
 
+.signup-input label {
+    margin-right: 1rem;
+}
 
+.redirect:hover {
+    color: var(--secondary-color)
+}
