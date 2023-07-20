@@ -4,55 +4,59 @@
 <section>
 <div class="h-screen">
     <div class="flex items-end text-6xl h-64 tracking-widest px-40">Continue your journey</div>
-    <!-- need form action -->
 
 <div class="displayTable">
   <div class="displayTableCell">
     <div class="authBlock">
-      <h3>Sign In</h3>
-      <div class="formGroup">
+       <div class="input-block grid gap-6 justify-center justify-items-end pt-20 pb-8">
+       <div class="formGroup login-input">
+         <label for="email">Email Address:</label>
         <input
-          type="text"
+          type="email"
           class="formControl"
-          placeholder="Username"
-          #userName
+          formControlName="email"
+          #userEmail
           required
         />
       </div>
-      <div class="formGroup">
+      <div class="formGroup login-input">
+         <label for="password">Password:</label>
         <input
           type="password"
           class="formControl"
-          placeholder="Password"
-          #userPassword
+          formControlName="password"
+          #userPwd
           required
         />
       </div>
-            <!-- Calling SignIn Api from AuthService -->
+      </div>
+<div class="signup-btn-container flex flex-col items-center justify-center ">
       <div class="formGroup">
         <input
           type="button"
-          class="login-btn btnPrimary"
+          class="login-btn uppercase flex justify-center rounded-full border-2 border-gray-600 px-4 py-3 w-40 my-5 tracking-widest cursor-pointer"
           value="Log in"
-          (click)="authService.SignIn(userName.value, userPassword.value)"
+          (click)="authService.SignIn(userEmail.value, userPwd.value)"
         />
       </div>
       <div class="formGroup">
-        <span class="or"><span class="orInner">Or</span></span>
+        <button type="button" class="w-52 mb-5" (click)="authService.GoogleAuth()">
+          <img src="../../../assets/images/btn_google_signin_light_normal_web@2x.png"/>
+        </button>
       </div>
-      <div class="forgotPassword">
+      <div class="forgotPassword cursor-pointer hover:underline">
         <span routerLink="/forgot-password">Forgot Password?</span>
       </div>
-    </div>
     <div class="redirectToLogin">
       <span
         >Don't have an account?<span
-          class="redirect"
+          class="redirect cursor-pointer hover:underline"
           routerLink="/"
         >
           Sign Up</span
         ></span
       >
     </div>
+  </div>
   </div>
 </div>
