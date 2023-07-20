@@ -13,7 +13,6 @@ import { HabitsComponent } from './components/habits/habits.component';
 import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component';
 import { SignupComponent } from './components/signup/signup.component';
 import { LoginComponent } from './components/login/login.component';
-
 import { authInterceptorProviders } from './_helpers/auth.interceptor';
 import { BackdropComponent } from './components/backdrop/backdrop.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
