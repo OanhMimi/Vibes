@@ -3,12 +3,12 @@
 
 <section>
 <div class="h-screen">
-    <div class="flex items-end text-6xl h-64 tracking-widest px-40">Continue your journey</div>
+    <div class="flex items-end text-6xl h-60 tracking-widest px-40">Continue your journey</div>
 
 <div class="displayTable">
   <div class="displayTableCell">
     <div class="authBlock">
-       <div class="input-block grid gap-6 justify-center justify-items-end pt-20 pb-8">
+       <div class="input-block grid gap-5 justify-center justify-items-end pt-20">
        <div class="formGroup login-input">
          <label for="email">Email Address:</label>
         <input
@@ -30,11 +30,14 @@
         />
       </div>
       </div>
-<div class="signup-btn-container flex flex-col items-center justify-center ">
-      <div class="formGroup">
+<div class="signup-btn-container flex flex-col items-center justify-center">
+  <div class="forgotPassword cursor-pointer hover:underline">
+        <span routerLink="/forgot-password" class="ml-16 text-sm ml-16">Forgot Password?</span>
+      </div>
+      <div class="formGroup mt-8">
         <input
           type="button"
-          class="login-btn uppercase flex justify-center rounded-full border-2 border-gray-600 px-4 py-3 w-40 my-5 tracking-widest cursor-pointer"
+          class="login-btn uppercase flex justify-center rounded-full border-2 border-gray-600 px-4 py-3 w-40 my-5 font-medium tracking-widest cursor-pointer"
           value="Log in"
           (click)="authService.SignIn(userEmail.value, userPwd.value)"
         />
@@ -44,18 +47,14 @@
           <img src="../../../assets/images/btn_google_signin_light_normal_web@2x.png"/>
         </button>
       </div>
-      <div class="forgotPassword cursor-pointer hover:underline">
-        <span routerLink="/forgot-password">Forgot Password?</span>
-      </div>
-    <div class="redirectToLogin">
+      
+    <div class="redirectToLogin flex flex-col justify-center items-center">
+      <span>Don't have an account?</span>
       <span
-        >Don't have an account?<span
-          class="redirect cursor-pointer hover:underline"
+          class="redirect cursor-pointer hover:underline font-medium"
           routerLink="/"
-        >
-          Sign Up</span
-        ></span
       >
+        Sign Up</span>
     </div>
   </div>
   </div>

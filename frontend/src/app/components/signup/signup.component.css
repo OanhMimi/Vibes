@@ -17,8 +17,6 @@
 
 input{
    background-color:#efdbd8a5; 
-   border: 1px rgba(0, 0, 0, 0.5) solid;
-   border-radius: 5px;
 }
 
 .signup-input {
@@ -28,12 +26,22 @@ input{
 
 .signup-input input {
     width: 18rem;
+    padding: 0.25rem 0.5rem 0.25rem 0.5rem;
+    border-bottom: 1px rgba(0, 0, 0, 0.5) solid;
 }
 
 .signup-input label {
     margin-right: 1rem;
+    font-weight: 500;
 }
 
 .redirect:hover {
     color: var(--secondary-color)
+}
+
+button:focus,
+input:focus,
+select:focus,
+textarea:focus {
+  outline-color: white;
 }

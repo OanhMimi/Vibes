@@ -15,7 +15,7 @@ import { SignupComponent } from './components/signup/signup.component';
 import { LoginComponent } from './components/login/login.component';
 
 import { authInterceptorProviders } from './_helpers/auth.interceptor';
-import { BackdropComponent } from './backdrop/backdrop.component';
+import { BackdropComponent } from './components/backdrop/backdrop.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AngularFireModule } from '@angular/fire/compat';
 import { AngularFireAuthModule } from '@angular/fire/compat/auth';

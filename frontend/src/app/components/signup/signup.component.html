@@ -2,7 +2,7 @@
  <app-backdrop></app-backdrop>
 
 <div class="h-screen">
-    <div class="flex items-end text-6xl h-64 tracking-widest px-40">Start your journey</div>
+    <div class="flex items-end text-6xl h-56 tracking-widest px-40">Start your journey</div>
 <div class="displayTable">
   <div class="displayTableCell">
     <div [formGroup]="userForm" class="authBlock">
@@ -50,7 +50,7 @@
       <div *ngIf="userForm.errors?.notSame">Passwords must match</div>
       <div class="formGroup">
         <button
-          class="signup-btn uppercase flex justify-center rounded-full border-2 border-gray-600 px-4 py-3 w-40 my-5 tracking-widest cursor-pointer"
+          class="signup-btn uppercase flex justify-center rounded-full border-2 border-gray-600 px-4 py-3 w-40 my-5 font-medium tracking-widest cursor-pointer"
           (click)="authService.SignUp(userEmail.value, userPwd.value)"
           [disabled]="userForm.invalid"
         >Sign Up</button>
@@ -66,11 +66,9 @@
       Log in with Facebook
     </button>
   </div> -->
-    <div class="redirectToLogin">
-      <span
-        >Already have an account?
-        <span class="redirect cursor-pointer hover:underline" routerLink="/login">Log In</span></span
-      >
+    <div class="redirectToLogin flex flex-col justify-center items-center">
+      <span>Already have an account?</span>
+        <span class="redirect cursor-pointer hover:underline font-medium" routerLink="/login">Log In</span>
     </div>
   </div>
   </div>

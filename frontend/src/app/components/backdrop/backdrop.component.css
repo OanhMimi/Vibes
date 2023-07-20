@@ -4,7 +4,13 @@
     z-index: -1;
 }
 
+#rightmt-1, #rightmt-2, #rightmt-3, #rightmt-4, #leftmt-1, #leftmt-2 {
+    bottom: 0.5rem;
+}
+
 #pink-layer {
+    height: 100%;
+    width: 100%;
     object-fit: cover;
     z-index: -4;
 }

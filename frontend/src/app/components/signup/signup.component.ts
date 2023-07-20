@@ -1,4 +1,4 @@
-import { Component,OnInit } from '@angular/core';
+import { Component,HostListener,OnInit } from '@angular/core';
 import { AuthService } from 'src/app/shared/services/auth';
 import { FormGroup, FormBuilder, FormControl, Validators } from '@angular/forms';
 

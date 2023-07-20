@@ -11,23 +11,31 @@
 
 input{
    background-color:#efdbd8a5; 
-   border: 1px rgba(0, 0, 0, 0.5) solid;
-   border-radius: 5px;
 }
 
-.login-input input {
-    padding: 0.5rem;
+.login-input {
+    padding: 1rem 2rem 1rem 2rem;
     margin-left: 1rem;
 }
 
 .login-input input {
     width: 18rem;
+    padding: 0.25rem 0.5rem 0.25rem 0.5rem;
+    border-bottom: 1px rgba(0, 0, 0, 0.5) solid;
 }
 
 .login-input label {
     margin-right: 1rem;
+    font-weight: 500;
 }
 
 .redirect:hover, .forgotPassword:hover{
-    color: var(--secondary-color)
+    color: var(--primary-color)
+}
+
+button:focus,
+input:focus,
+select:focus,
+textarea:focus {
+  outline-color: white;
 }

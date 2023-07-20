@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
-import { faBars } from '@fortawesome/free-solid-svg-icons';
+import { faBars, faHeart } from '@fortawesome/free-solid-svg-icons';
+import { AuthService } from 'src/app/shared/services/auth';
+import { Router } from '@angular/router';
 
 
 
@@ -13,8 +15,20 @@ import { faBars } from '@fortawesome/free-solid-svg-icons';
 export class NavbarComponent {
   faBars = faBars;
   navBarVisible = false;
+  faHeart = faHeart;
 
+  constructor(
+    public authService: AuthService,
+    private router: Router
+  ){}
 
+  redirectTo(){
+    if (this.authService.isLoggedIn){
+      this.router.navigate(['/dashboard'])
+    } else {
+      this.router.navigate(['/login'])
+    }
+  }
 
   handleClick(){
     this.navBarVisible = !this.navBarVisible;

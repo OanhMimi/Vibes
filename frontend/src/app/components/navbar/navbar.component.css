@@ -1,15 +1,17 @@
-.nav-bar {
-    width: 100vw;
-    display: flex;
-    justify-content: space-between
-}
 
-.menu-icon:hover, .nav-link:hover {
+.menu-icon:hover, .nav-link:hover, .home-icon:hover {
     background-color: var(--primary-color);
     border-radius: 9999px;
     border: 1px solid rgba(0, 0, 0, 0.5);
 }
 
+.nav-bar-wrapper {
+    width: 100vw;
+}
+
+#nav-bar-comp{
+    width: 90vw;
+}
 
 * {
     background-color: transparent;
