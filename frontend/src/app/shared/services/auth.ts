@@ -7,12 +7,14 @@ import {
 import { GoogleAuthProvider, FacebookAuthProvider } from 'firebase/auth';
 import { AngularFireAuth } from '@angular/fire/compat/auth';
 import { Router } from '@angular/router';
+import { FormGroup } from '@angular/forms';
 @Injectable({
   providedIn: 'root',
 })
 
 export class AuthService {
-  userData: any; // Save logged in user data
+  userData: any;  // Save logged in user data
+
   constructor(
     public afs: AngularFirestore, // Inject Firestore service
     public afAuth: AngularFireAuth, // Inject Firebase auth service
@@ -73,8 +75,6 @@ export class AuthService {
     return this.afAuth
       .createUserWithEmailAndPassword(email, password)
       .then((result) => {
-        /* Call the SendVerificaitonMail() function when new user sign 
-        up and returns promise */
         this.SendVerificationMail();
         this.SetUserData(result.user);
       })
@@ -82,6 +82,7 @@ export class AuthService {
         window.alert(error.message);
       });
   }
+
 
     SendVerificationMail() {
     return this.afAuth.currentUser

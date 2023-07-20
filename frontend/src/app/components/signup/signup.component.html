@@ -6,32 +6,53 @@
     <div class="flex items-end text-6xl h-64 tracking-widest px-40">Start your journey</div>
     <div class="displayTable flex justify-center py-8 bg-gray-100">
   <div class="displayTableCell">
-    <div class="authBlock">
-      <div class="signup-input">
-        <label></label>
+    <div [formGroup]="userForm" class="authBlock">
+       <div class="formGroup signup-input">
+          <label for="displayName">First Name:</label>
+          <input 
+            type="text" 
+            class="formControl"
+            formControlName="displayName"
+            required
+          />
+       </div>
+       <div class="formGroup signup-input">
+         <label for="email">Email Address:</label>
         <input
           type="email"
           class="formControl"
-          placeholder="Email Address"
+          formControlName="email"
           #userEmail
           required
         />
       </div>
-      <div class="signup-input">
+      <div class="formGroup signup-input">
+         <label for="password">Password:</label>
         <input
           type="password"
           class="formControl"
-          placeholder="Password"
+          formControlName="password"
           #userPwd
           required
         />
       </div>
-      <div class="signup-input">
+     <div class="formGroup signup-input">
+        <label for="confirm-password">Confirm Password:</label>
+          <input 
+            type="password" 
+            class="formControl"
+            formControlName="passwordConfirm"
+            required
+          />
+     </div>
+      <div *ngIf="userForm.errors?.notSame">Passwords must match</div>
+      <div class="formGroup signup-input">
         <input
           type="button"
           class="btn btnPrimary"
           value="Sign Up"
           (click)="authService.SignUp(userEmail.value, userPwd.value)"
+          [disabled]="userForm.invalid"
         />
       </div>
       <div class="formGroup">
