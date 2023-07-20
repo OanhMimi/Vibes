@@ -26,6 +26,7 @@ import { ForgotPasswordComponent } from './components/forgot-password/forgot-pas
 import { VerifyEmailComponent } from './components/verify-email/verify-email.component';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { WelcomePageComponent } from './welcome-page/welcome-page.component';
+import { JournalFormComponent } from './components/thoughts/journal-form/journal-form/journal-form.component';
 
 
 
@@ -43,7 +44,8 @@ import { WelcomePageComponent } from './welcome-page/welcome-page.component';
     ForgotPasswordComponent,
     VerifyEmailComponent,
     DashboardComponent,
-    WelcomePageComponent
+    WelcomePageComponent,
+    JournalFormComponent
   ],
   imports: [
     BrowserModule,
