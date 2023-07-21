@@ -1,0 +1,17 @@
+button {
+    background-color: var(--primary-color);
+    border-radius: 9999px;
+    border: 1px rgba(0, 0, 0, 0.5) solid;
+    text-transform: uppercase;
+    display: flex;
+    justify-content: center;
+    padding: 1rem 1.5rem 1rem 1.5rem;
+    cursor: pointer;
+    margin: 1rem;
+    font-size: 1rem;
+    letter-spacing: 0.1rem;
+}
+
+button:hover {
+    background-color: var(--hover-color);
+}

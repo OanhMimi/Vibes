@@ -27,6 +27,7 @@ import { VerifyEmailComponent } from './components/verify-email/verify-email.com
 import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { WelcomePageComponent } from './welcome-page/welcome-page.component';
 import { JournalFormComponent } from './components/thoughts/journal-form/journal-form/journal-form.component';
+import { ReusableButtonComponent } from './components/reusable-button/reusable-button.component';
 
 
 
@@ -45,7 +46,8 @@ import { JournalFormComponent } from './components/thoughts/journal-form/journal
     VerifyEmailComponent,
     DashboardComponent,
     WelcomePageComponent,
-    JournalFormComponent
+    JournalFormComponent,
+    ReusableButtonComponent
   ],
   imports: [
     BrowserModule,
