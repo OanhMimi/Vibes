@@ -3,75 +3,71 @@
 
 <div class="h-screen">
     <div class="flex items-end text-6xl h-56 tracking-widest px-40">Start your journey</div>
-<div class="displayTable">
-  <div class="displayTableCell">
-    <div [formGroup]="userForm" class="authBlock">
+
+    <form [formGroup]="userForm" class="authBlock">
       <div class="input-block grid gap-1 justify-center justify-items-end pt-10">
-       <div class="formGroup signup-input">
-          <label for="displayName">First Name:</label>
-          <input 
-            type="text" 
+        <div class="formGroup signup-input">
+            <label for="displayName">First Name:</label>
+            <input 
+              type="text" 
+              class="formControl"
+              formControlName="displayName"
+              required
+            />
+        </div>
+        <div class="formGroup signup-input">
+          <label for="email">Email Address:</label>
+          <input
+            type="email"
             class="formControl"
-            formControlName="displayName"
+            formControlName="email"
+            #userEmail
             required
           />
-       </div>
-       <div class="formGroup signup-input">
-         <label for="email">Email Address:</label>
-        <input
-          type="email"
-          class="formControl"
-          formControlName="email"
-          #userEmail
-          required
-        />
-      </div>
-      <div class="formGroup signup-input">
-         <label for="password">Password:</label>
-        <input
-          type="password"
-          class="formControl"
-          formControlName="password"
-          #userPwd
-          required
-        />
-      </div>
-     <div class="formGroup signup-input">
-        <label for="confirm-password">Confirm Password:</label>
-          <input 
-            type="password" 
+        </div>
+        <div class="formGroup signup-input">
+          <label for="password">Password:</label>
+          <input
+            type="password"
             class="formControl"
-            formControlName="passwordConfirm"
+            formControlName="password"
+            #userPwd
             required
           />
-     </div>
+        </div>
+        <div class="formGroup signup-input">
+            <label for="confirm-password">Confirm Password:</label>
+              <input 
+                type="password" 
+                class="formControl"
+                formControlName="passwordConfirm"
+                required
+              />
+        </div>
      </div>
      <div class="signup-btn-container flex flex-col items-center justify-center ">
-      <div *ngIf="userForm.errors?.notSame">Passwords must match</div>
-      <div class="formGroup">
-        <button
-          class="signup-btn uppercase flex justify-center rounded-full border-2 border-gray-600 px-4 py-3 w-40 my-5 font-medium tracking-widest cursor-pointer"
-          (click)="authService.SignUp(userEmail.value, userPwd.value)"
-          [disabled]="userForm.invalid"
-        >Sign Up</button>
-      </div>
-      <div class="formGroup">
-        <button type="button" class="w-52 mb-5" (click)="authService.GoogleAuth()">
-          <img src="../../../assets/images/btn_google_signin_light_normal_web@2x.png"/>
-        </button>
-      </div>
+        <div *ngIf="userForm.errors?.notSame">Passwords must match</div>
+        <div class="formGroup">
+          <app-reusable-button class="signup-btn" [text]="'Sign Up'" [disabled]="false" (btnClick)="authService.SignUp(userEmail.value, userPwd.value)"></app-reusable-button>
+        </div>
+        <div class="formGroup">
+          <button type="button" class="w-52 mb-5" (click)="authService.GoogleAuth()">
+            <img src="../../../assets/images/btn_google_signin_light_normal_web@2x.png"/>
+          </button>
+        </div>
 
   <!-- <div class="formGroup">
     <button type="button" (click)="authService.FacebookAuth()">
       Log in with Facebook
     </button>
   </div> -->
-    <div class="redirectToLogin flex flex-col justify-center items-center">
-      <span>Already have an account?</span>
-        <span class="redirect cursor-pointer hover:underline font-medium" routerLink="/login">Log In</span>
+        <div class="redirectToLogin flex flex-col justify-center items-center">
+          <span>Already have an account?</span>
+            <span class="redirect cursor-pointer hover:underline font-medium" routerLink="/login">Log In</span>
+        </div>
     </div>
-  </div>
-  </div>
+  </form>
+
 </div>
     
 
