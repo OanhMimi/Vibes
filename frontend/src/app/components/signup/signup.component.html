@@ -48,7 +48,7 @@
      <div class="signup-btn-container flex flex-col items-center justify-center ">
         <div *ngIf="userForm.errors?.notSame">Passwords must match</div>
         <div class="formGroup">
-          <app-reusable-button class="signup-btn" [text]="'Sign Up'" [disabled]="false" (btnClick)="authService.SignUp(userEmail.value, userPwd.value)"></app-reusable-button>
+          <app-reusable-button class="signup-btn" [text]="'Sign Up'" [disabled]="false" (btnClick)="authService.SignUp(userEmail.value, userPwd.value)" class="m-1"></app-reusable-button>
         </div>
         <div class="formGroup">
           <button type="button" class="w-52 mb-5" (click)="authService.GoogleAuth()">

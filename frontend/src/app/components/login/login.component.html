@@ -33,7 +33,7 @@
         </div>
       
         <div class="formGroup mt-8">
-          <app-reusable-button [text]="'Log In'" [disabled]="false" (btnClick)="authService.SignIn(userEmail.value, userPwd.value)"></app-reusable-button>
+          <app-reusable-button [text]="'Log In'" [disabled]="false" (btnClick)="authService.SignIn(userEmail.value, userPwd.value)" class="m-1"></app-reusable-button>
         </div>
         <div class="formGroup">
           <button type="button" class="w-52 mb-5" (click)="authService.GoogleAuth()">

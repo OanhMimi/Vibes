@@ -6,14 +6,3 @@
 #down-arrow:hover {
     transform: scale(1.6);
 }
-
-#sign-up-btn, #login-btn {
-    background-color: var(--primary-color);
-    border-radius: 9999px;
-    border: 1px rgba(0, 0, 0, 0.5) solid;
-
-}
-
-#sign-up-btn:hover, #login-btn:hover {
-    background-color: var(--hover-color);
-}

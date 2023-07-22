@@ -12,6 +12,7 @@ import { DashboardComponent } from './components/dashboard/dashboard.component';
 // route guard
 import { AuthGuard } from './shared/guard/auth.guard';
 import { WelcomePageComponent } from './welcome-page/welcome-page.component';
+import { JournalFormComponent } from './components/thoughts/journal-form/journal-form.component';
 
 
 const routes: Routes = [
@@ -24,7 +25,8 @@ const routes: Routes = [
   { path: 'reads', component: ReadsComponent, canActivate: [AuthGuard]},
   { path: 'forgot-password', component: ForgotPasswordComponent },
   { path: 'verify-email-address', component: VerifyEmailComponent },
-  { path: 'welcome', component: WelcomePageComponent }
+  { path: 'welcome', component: WelcomePageComponent },
+  { path: "journal-form", component: JournalFormComponent }
   // { path: '**', component: PageNotFoundComponent }  // Wildcard route for a 404 page
 ];
 

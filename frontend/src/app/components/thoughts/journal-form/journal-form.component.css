@@ -1,0 +1,21 @@
+.journal-wrapper {
+    background-color: rgba(255, 255, 255, 0.871);
+    height: 90%;
+    width: 95vw;
+    border-radius: 1.5rem;
+}
+
+.title-field {
+    border-bottom: 1px solid black;
+}
+
+#message {
+    height: 63vh;
+}
+
+button:focus,
+input:focus,
+select:focus,
+textarea:focus {
+  outline-color: var(--secondary-color);
+}

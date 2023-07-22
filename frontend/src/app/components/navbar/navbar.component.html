@@ -1,8 +1,7 @@
 <div class="home-icon-wrapper flex flex-row items-center pt-3">
     <div (click)="redirectTo()"><fa-icon [icon]="faHeart" class="home-icon text-xl p-4 ml-2"></fa-icon></div>
-    <div (click) = "handleClick()"  class="flex flex-row text-xl bg-white w-screen">
-        <fa-icon [icon]="faBars" class="p-4 menu-icon"></fa-icon>
-        <div id="nav-bar-comp" *ngIf="navBarVisible" class="flex flex-row justify-between gap-10 text-base"> 
+    <div class="flex flex-row text-xl bg-white w-screen">
+        <div id="nav-bar-comp" class="flex flex-row justify-between gap-10 text-base">
             <div class="components-wrapper flex flex-row">
                 <div routerLink="/habits" routerLinkActive="active" ariaCurrentWhenActive="page"  class="nav-link p-4">Habits</div>
                 <div routerLink="/thoughts" routerLinkActive="active" ariaCurrentWhenActive="page" class="nav-link p-4">Thoughts</div>

@@ -1,10 +1,14 @@
 <app-backdrop></app-backdrop>
-<div class="thoughts-wrapper">
-    <h1 class="thoughts-header flex items-end h-32 text-4xl ml-10 font-light">A space for your thoughts</h1>
-    <button 
-    routerLink="/journal-form"
-    routerLinkActive="active" ariaCurrentWhenActive="page" 
-    class="flex uppercase justify-center rounded-full border-2 border-gray-600 px-4 py-3 w-56 tracking-widest cursor-pointer" 
-     >Add an Entry
-    </button>
+<div class="h-screen flex justify-center content-end items-end pb-4">
+    <div class="thoughts-wrapper">
+        <h1 class="thoughts-header flex justify-center items-end h-28 text-4xl ml-16 font-base tracking-widest">A space for your thoughts</h1>
+        <app-reusable-button [text]="'Add an Entry'" [disabled]="false" routerLink="/journal-form"
+        routerLinkActive="active" ariaCurrentWhenActive="page"
+        class="flex justify-center mt-7 m-5"
+        id="add-entry-btn"></app-reusable-button>
+        <div class="entries-wrapper"> aksdhfkahsdjfk najsn</div>
+    </div>
+ 
+
 </div>
+

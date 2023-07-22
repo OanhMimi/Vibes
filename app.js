@@ -43,15 +43,7 @@ app.get('/', (req, res) => {
     res.send('Hello from Node.js server!');
 });
 
-// app.use(
-//     csurf({
-//         cookie: {
-//             secure: isProduction,
-//             sameSite: isProduction && "Lax",
-//             httpOnly: true
-//         }
-//     })
-// );
+
 
 app.use('/', indexRouter);
 app.use('/api/users', usersRouter);

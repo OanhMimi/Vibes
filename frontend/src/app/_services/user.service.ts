@@ -12,6 +12,7 @@ const API_URL = 'http://localhost:3000/api/users/';
 export class UserService {
   constructor(private http: HttpClient) { }
 
+
   getUser(id: number): Observable<User> {
     return this.http.get<User>(API_URL + `${id}`)
   }
