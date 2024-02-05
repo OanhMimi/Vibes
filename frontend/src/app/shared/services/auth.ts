@@ -39,22 +39,26 @@ export class AuthService {
     return this.AuthLogin(new GoogleAuthProvider());
   }
 
-//   FacebookAuth(){
-//     return this.AuthLogin(new FacebookAuthProvider());
-//   }
 
+//this is the main login function, used by Firebase
     AuthLogin(provider) {
     return this.afAuth
       .signInWithPopup(provider)
       .then((result) => {
-        console.log('Login Successful');
-        this.router.navigate(['/dashboard'])
+        this.SetUserData(result.user);
+        this.afAuth.authState.subscribe((user) => {
+          if (user) {
+            console.log("this is:", user)
+            this.router.navigate(['/dashboard']);
+          }
+        });
       })
       .catch((error) => {
         console.log(error);
       });
   }
 
+  //This may not be in use? Double check
   SignIn(email: string, password: string) {
     return this.afAuth
       .signInWithEmailAndPassword(email, password)
@@ -62,6 +66,7 @@ export class AuthService {
         this.SetUserData(result.user);
         this.afAuth.authState.subscribe((user) => {
           if (user) {
+            console.log("this is:", user)
             this.router.navigate(['/dashboard']);
           }
         });
