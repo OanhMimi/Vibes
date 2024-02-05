@@ -41,7 +41,7 @@ export class AuthService {
 
 
 //this is the main login function, used by Firebase
-    AuthLogin(provider) {
+  AuthLogin(provider) {
     return this.afAuth
       .signInWithPopup(provider)
       .then((result) => {
@@ -76,7 +76,7 @@ export class AuthService {
       });
   }
 
-   SignUp(email: string, password: string) {
+  SignUp(email: string, password: string) {
     return this.afAuth
       .createUserWithEmailAndPassword(email, password)
       .then((result) => {
@@ -89,7 +89,7 @@ export class AuthService {
   }
 
 
-    SendVerificationMail() {
+  SendVerificationMail() {
     return this.afAuth.currentUser
       .then((u: any) => u.sendEmailVerification())
       .then(() => {
@@ -108,7 +108,7 @@ export class AuthService {
       });
   }
 
-    get isLoggedIn(): boolean {
+  get isLoggedIn(): boolean {
     const user = JSON.parse(localStorage.getItem('user')!);
     return user !== null && user.emailVerified !== false ? true : false;
   }
@@ -129,10 +129,10 @@ export class AuthService {
     });
   }
 
-SignOut() {
-    return this.afAuth.signOut().then(() => {
-      localStorage.removeItem('user');
-      this.router.navigate(['/welcome']);
-    });
+  SignOut() {
+      return this.afAuth.signOut().then(() => {
+        localStorage.removeItem('user');
+        this.router.navigate(['/welcome']);
+      });
   }
 }

@@ -9,15 +9,9 @@
             </div>
             
 
-            <div class="logout-btn-wrapper">
+            <div class="logout-btn-wrapper" *ngIf="authService.isLoggedIn">
                 <div class="nav-link p-4" (click)="authService.SignOut()">Log out</div> 
             </div> 
     </div>
    
 </div>
-     
-   
-
-
-
-
